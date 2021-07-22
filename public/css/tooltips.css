@@ -1,0 +1,156 @@
+/* Reference https://codeconvey.com/pure-html5-css-tooltips-using-title-data-attribute/ */
+
+.tooltip {
+  position: relative;
+  display: inline;
+  color: #3cae41;
+  /* font-size: 20px; */
+}
+
+.tooltip:after {
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  opacity: 0;
+  content: attr(data-title);
+  height: auto;
+  min-width: 220px;
+  padding: 15px 8px;
+  z-index: 999;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.85);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.tooltip:before {
+  position: absolute;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  left: 50%;
+  bottom: 0px;
+  opacity: 0;
+  content: "";
+  border-style: solid;
+  border-width: 6px 6px 0 6px;
+  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+}
+
+.tooltip:hover:after {
+  visibility: visible;
+  opacity: 1;
+  bottom: 20px;
+}
+
+.tooltip:hover:before {
+  visibility: visible;
+  opacity: 1;
+  bottom: 14px;
+}
+
+/* tips on bottom */
+
+.tooltip.bottom:after {
+  bottom: auto;
+  top: 0;
+}
+
+.tooltip.bottom:hover:after {
+  top: 28px;
+}
+
+.tooltip.bottom:before {
+  border-width: 0 5px 8.7px 5px;
+  border-color: transparent transparent rgba(0, 0, 0, 0.85) transparent;
+  top: 0px
+}
+
+.tooltip.bottom:hover:before {
+  top: 20px;
+}
+
+/* tips on the right */
+
+.tooltip.right:after {
+  left: 100%;
+  bottom: -45%;
+}
+
+.tooltip.right:hover:after {
+  left: 110%;
+  bottom: -45%;
+}
+
+.tooltip.right:before {
+  border-width: 5px 10px 5px 0;
+  border-color: transparent rgba(0, 0, 0, 0.85) transparent transparent;
+  left: 90%;
+  bottom: 2%;
+}
+
+.tooltip.right:hover:before {
+  left: 100%;
+  bottom: 2%;
+}
+
+/* tips on the left */
+
+.tooltip.left:after {
+  left: auto;
+  right: 100%;
+  bottom: -45%;
+}
+
+.tooltip.left:hover:after {
+  right: 110%;
+  bottom: -45%;
+}
+
+.tooltip.left:before {
+  border-width: 5px 0 5px 10px;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+  left: auto;
+  right: 90%;
+  bottom: 2%;
+}
+
+.tooltip.left:hover:before {
+  right: 100%;
+  bottom: 2%;
+}
+
+/* tooltip colors (add your own!) */
+
+.tooltip.blue:after {
+  background: #5f87c2;
+}
+
+.tooltip.blue:before {
+  border-color: #5f87c2 transparent transparent transparent;
+}
+
+.tooltip.bottom.blue:before {
+  border-color: transparent transparent #5f87c2 transparent;
+}
+
+.tooltip.right.blue:before {
+  border-color: transparent #5f87c2 transparent transparent;
+}
+
+.tooltip.left.blue:before {
+  border-color: transparent transparent transparent #5f87c2;
+}
+
+.tooltip.animationTips:after, .tooltip.animationTips:before {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}

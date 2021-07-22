@@ -1,0 +1,48 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title All Tasks
+        link(rel="stylesheet" href="/purecss/build/pure-min.css")
+        link(rel="stylesheet" href="/css/tooltips.css")
+        link(rel="stylesheet" href="/css/index.css")
+    body(style="padding: 25px;").text-small
+        form.pure-form#filter-form(autocomplete="off")
+            fieldset
+                legend#taskform Filter Task <span id="filteredTime"></span>
+                .pure-u-g                 
+                    .pure-u-1-4
+                        label(for="from") 
+                            small From Date
+                            input#fromdate(type="text" list="datelist" placeholder="From Date")
+                    .pure-u-1-4
+                        label(for="from") 
+                            small To Date
+                            input#todate(type="text" list="datelist" placeholder="To Date")
+                    .pure-u-1-4
+                        label(for="task")
+                            small Task
+                            input#task(type="text" list="tasklist" placeholder="Task")
+                    .pure-u-1-4
+                        label(for="subtask") 
+                            small Sub Task
+                            input#subtask(type="text" list="subtasklist" placeholder="Sub Task")
+        form.pure-form#container
+            fieldset.reportTemplate
+                legend.dateInput Date Value
+                table.pure-table.full-width
+                    thead 
+                        tr 
+                            th.text-center.no-wrap #
+                            th.text-center.no-wrap(style="width:50%;") Task
+                            th.text-center.no-wrap(style="width:40%;") Comments
+                            th.text-center.no-wrap(style="width:10%;") Time Spent
+                    tbody 
+
+        datalist#tasklist
+        datalist#subtasklist
+        datalist#datelist
+
+        script(src="/js/report.js")

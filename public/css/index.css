@@ -1,0 +1,83 @@
+body {
+    padding: 25px;
+}
+
+form.pure-form input {
+    margin-bottom: 10px;
+    width: calc(100% - 5px);
+}
+
+form.pure-form button {
+    margin-bottom: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-small {
+    font-size: smaller;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+#error {
+    color: red;
+}
+
+.table-entry-actions button {
+    margin: 0px !important;
+    margin-right: 5px !important;
+}
+
+.button-xsmall {
+    font-size: 70%;
+}
+
+.button-small {
+    font-size: 85%;
+}
+
+.button-large {
+    font-size: 110%;
+}
+
+.button-xlarge {
+    font-size: 125%;
+}
+
+.button-success, .button-error, .button-warning, .button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65);
+    /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60);
+    /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20);
+    /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221);
+    /* this is a light blue */
+}

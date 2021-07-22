@@ -1,0 +1,88 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Task Breakup
+        link(rel="stylesheet" href="/purecss/build/pure-min.css")
+        link(rel="stylesheet" href="/css/index.css")
+    body(style="padding: 25px;").text-small
+        form.pure-form#entry-form
+            fieldset
+                legend#taskform Create Task
+                input#unid(type="hidden")
+                .pure-u-g 
+                    .pure-u-1-5
+                        label(for="task")
+                            small Task
+                        input#task(type="text" list="tasklist" placeholder="Task")
+                    .pure-u-1-5
+                        label(for="subtask") 
+                            small Sub Task
+                        input#subtask(type="text" list="subtasklist" placeholder="Sub Task")
+                    .pure-u-1-5
+                        label(for="currenttask") 
+                            small Current Task
+                        input#currenttask(type="text" list="currenttasklist" autocomplete="on" placeholder="Current Task")
+                    .pure-u-1-5
+                        label(for="start") 
+                            small Start Time
+                        input#start.time(type="text" placeholder="Start Time")
+                    .pure-u-1-5
+                        label(for="end") 
+                            small End Time
+                        input#end.time(type="text" placeholder="End Time")
+                    .pure-u-4-5
+                        label(for="comments") 
+                            small Comments
+                        input#comments(type="text" placeholder="Comments")
+                    .pure-u-1-5
+                        label(for="save-action" style="color:transparent;")
+                            small Action
+                        input#save-action(type="button" value="Add").pure-button.pure-button-primary.save-entry
+                .pure-u-g 
+                    small.pure-u-1.text-right#error
+        form.pure-form
+            fieldset
+                legend Today's task list
+                table.pure-table.full-width
+                    thead 
+                        tr 
+                            th.text-center.no-wrap #
+                            th.text-center.no-wrap(style="width:50%") Task
+                            th.text-center.no-wrap(style="width:40%") Comments
+                            th.text-center.no-wrap(style="width:2.5%") Start Time
+                            th.text-center.no-wrap(style="width:2.5%") End Time
+                            th.text-center.no-wrap(style="width:2.5%") Time Spent
+                            th.text-center.no-wrap(style="width:2.5%") Edit
+                    tbody 
+                        each row, index in ENTRIES 
+                            tr(class=(index % 2 ? "pure-table-odd" : ""))
+                                td.text-right #{index+1}
+                                td #{row.fullTaskName}
+                                td #{row.comments}
+                                td.text-right.no-wrap #{row.start12hr} 
+                                td.text-right.no-wrap #{row.end12hr}
+                                td.text-right.no-wrap #{row.minuteshr}
+                                td.table-entry-actions.text-center.no-wrap
+                                    button.pure-button.button-xsmall.pure-button-primary.edit-entry(data-unid=row.unid) Edit
+                                    button.pure-button.button-xsmall.button-secondary.copy-entry(data-unid=row.unid) Copy
+                                    button.pure-button.button-xsmall.button-error.delete-entry(data-unid=row.unid) Delete
+                        else 
+                            tr
+                                td(colspan="6").text-center No entries found
+        .pure-g
+            .pure-u-1.text-right <b>Time Entered:</b> #{ENTERED_TIME} <b>of</b> #{TOTAL_TIME}
+        
+        datalist#tasklist
+            each opt in TASKS
+                option(value=opt)
+        datalist#subtasklist
+            each opt in SUB_TASKS
+                option(value=opt)
+        datalist#currenttasklist
+            each opt in CURRENT_TASKS
+                option(value=opt)
+
+        script(src="/js/app.js") 
