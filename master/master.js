@@ -4,7 +4,8 @@ const data = {
         'SP_UAT', 'FW2.0_UAT',
         'SP_MEETING', 'FW2.0_MEETING',
         'UAT_SUPPORT', 'AMS_SUPPORT',
-        'Interview', 'Meeting', 'Quite Period', 'Others', 'Non-Working Days'
+        'Interview', 'Meeting', 'Quite Period', 'Others',
+        'Holiday', 'Leave', 'Comp-off', 'Non-Working Days'
     ],
     SUB_TASKS: [
         'PV_EINVOICE', 'App SPA template preparation', 'REST API template preparation',

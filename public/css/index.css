@@ -2,7 +2,7 @@ body {
     padding: 25px;
 }
 
-form.pure-form input {
+form.pure-form input:not([type=checkbox],[type=radio]) {
     margin-bottom: 10px;
     width: calc(100% - 5px);
 }
@@ -33,6 +33,10 @@ form.pure-form button {
 
 #error {
     color: red;
+}
+
+#taskform>* {
+    margin-right: 5px;
 }
 
 .table-entry-actions button {

@@ -11,7 +11,10 @@ html(lang="en")
     body(style="padding: 25px;").text-small
         form.pure-form#filter-form(autocomplete="off")
             fieldset
-                legend#taskform Filter Task <span id="filteredTime"></span>
+                legend#taskform
+                    label(for="bytask")
+                        <input id="bytask" type="checkbox" value="1" /> Filter By Task
+                    span#filteredTime
                 .pure-u-g                 
                     .pure-u-1-4
                         label(for="from") 

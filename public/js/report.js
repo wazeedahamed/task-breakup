@@ -80,12 +80,13 @@
                 (data.fromdate ? data.fromdate <= entry.date : true) &&
                 (data.todate ? data.todate >= entry.date : true)
             );
-        });
+        }).sort(({ date: a }, { date: b }) => a < b ? -1 : a > b ? 1 : 0), byTask = document.querySelector("#bytask").checked;
 
         updateDataList(filtered);
 
         const grouped = filtered.reduce((acc, entry) => {
-            const data = acc.hasOwnProperty(entry.date) ? acc[entry.date] : (acc[entry.date] = []);
+            const groupKey = byTask ? entry.fullTaskName : entry.date;
+            const data = acc.hasOwnProperty(groupKey) ? acc[groupKey] : (acc[groupKey] = []);
             data.push(entry);
             return acc;
         }, {});
@@ -129,30 +130,31 @@
         let filteredTime = 0;
         container.innerHTML = "";
 
-        Object.keys(grouped).sort().forEach(date => {
-            const t = template.cloneNode(true);
-            const tb = t.querySelector('tbody');
-            let time = 0;
-            container.appendChild(t);
-            grouped[date].forEach((entry, index) => {
-                const tr = document.createElement('tr'),
-                    title = entry.title.join("\n");
-                tb.appendChild(tr);
-                // tr.title = entry.title.join("\n");
-                if (index % 2 == 1) {
-                    tr.classList.add('pure-table-odd');
-                }
+        Object.keys(grouped)
+            .forEach(date => {
+                const t = template.cloneNode(true);
+                const tb = t.querySelector('tbody');
+                let time = 0;
+                container.appendChild(t);
+                grouped[date].forEach((entry, index) => {
+                    const tr = document.createElement('tr'),
+                        title = entry.title.join("\n");
+                    tb.appendChild(tr);
+                    // tr.title = entry.title.join("\n");
+                    if (index % 2 == 1) {
+                        tr.classList.add('pure-table-odd');
+                    }
 
-                td(tr, String(index + 1), true);
-                tooltip(td(tr, entry.fullTaskName).querySelector('span'), title);
-                td(tr, entry.comments);
-                td(tr, hhmmmins(entry.minutes), true).classList.add('no-wrap');
-                time += entry.minutes;
+                    td(tr, String(index + 1), true);
+                    tooltip(td(tr, entry.fullTaskName).querySelector('span'), title);
+                    td(tr, entry.comments);
+                    td(tr, hhmmmins(entry.minutes), true).classList.add('no-wrap');
+                    time += entry.minutes;
+                });
+
+                t.querySelector(".dateInput").textContent = `${date} [ Time: ${hhmmmins(time)} ]`;
+                filteredTime += time;
             });
-
-            t.querySelector(".dateInput").textContent = `${date} [ Time: ${hhmmmins(time)} ]`;
-            filteredTime += time;
-        });
         document.querySelector('#filteredTime').textContent = `[ Time: ${hhmmmins(filteredTime)} ]`;
     }
 
