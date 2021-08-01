@@ -22,6 +22,10 @@ app.get('/report', async (req, res) => {
     res.render('report');
 });
 
+app.get('/weekly-report', async (req, res) => {
+    res.render('weekly-report');
+});
+
 app.post('/entries', async (req, res) => {
     const { action } = req.body,
         result = await handleEntryRequest(null, action);

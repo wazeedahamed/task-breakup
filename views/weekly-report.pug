@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Weekly Task Report
+        link(rel="stylesheet" href="/purecss/build/pure-min.css")
+        link(rel="stylesheet" href="/css/tooltips.css")
+        link(rel="stylesheet" href="/css/index.css")
+    body.text-small
+        include menu
+        #pageContent
+            form.pure-form#filter-form(autocomplete="off")
+                fieldset
+                    legend#taskform
+                        label Week Details
+                    .pure-u-g                 
+                        .pure-u-1-4
+                            label(for="fromdate")
+                                small From Date
+                            select#fromdate(type="text" placeholder="From Date")
+            form.pure-form#container
+                fieldset.reportTemplate
+                    legend.dateInput Time Sheet Entries
+                    table.pure-table.full-width
+                        thead 
+                            tr 
+                                th.text-center.no-wrap #
+                                th.text-center.no-wrap(style="width:50%;") Task
+                                th.text-center.no-wrap(style="width:10%;") Total Time
+                                th.text-center.no-wrap.report-date(style="width:10%;") {{DATE0}}
+                                th.text-center.no-wrap.report-date(style="width:10%;") {{DATE1}}
+                                th.text-center.no-wrap.report-date(style="width:10%;") {{DATE2}}
+                                th.text-center.no-wrap.report-date(style="width:10%;") {{DATE3}}
+                                th.text-center.no-wrap.report-date(style="width:10%;") {{DATE4}}
+                                th.text-center.no-wrap.report-date(style="width:10%;") {{DATE5}}
+                                th.text-center.no-wrap.report-date(style="width:10%;") {{DATE6}}
+                        tbody
+                        tfoot 
+
+        script(src="/js/weekly-report.js")

@@ -1,8 +1,22 @@
-body {
+#pageContent {
     padding: 25px;
 }
 
-form.pure-form input:not([type=checkbox],[type=radio]) {
+.main-menu {
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+}
+
+.pure-menu {
+    background-color: black;
+}
+
+.pure-menu-children {
+    border: 10px solid lightgrey;
+}
+
+form.pure-form input:not([type=checkbox], [type=radio]), form.pure-form select {
     margin-bottom: 10px;
     width: calc(100% - 5px);
 }
@@ -23,6 +37,14 @@ form.pure-form button {
     font-size: smaller;
 }
 
+.text-big {
+    font-size: larger;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
 .full-width {
     width: 100%;
 }
@@ -31,12 +53,24 @@ form.pure-form button {
     white-space: nowrap;
 }
 
-#error {
+#error, .error {
     color: red;
+}
+
+.okay {
+    color: green;
 }
 
 #taskform>* {
     margin-right: 5px;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+tfoot td {
+    background-color: lightgrey !important;
 }
 
 .table-entry-actions button {

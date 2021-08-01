@@ -8,7 +8,7 @@ const data = {
         'Holiday', 'Leave', 'Comp-off', 'Non-Working Days'
     ],
     SUB_TASKS: [
-        'PV_EINVOICE', 'App SPA template preparation', 'REST API template preparation',
+        'PV_EINVOICE', 'NSCEPO', 'App SPA template preparation', 'REST API template preparation',
         'Knowledge transfer', 'Demo', 'Schedule discussion'
     ],
     CURRENT_TASKS: [
