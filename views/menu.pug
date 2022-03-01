@@ -5,6 +5,9 @@ div.pure-menu.pure-menu-horizontal.text-big.main-menu
             a.pure-menu-link(href="/weekly-report") Weekly Report
         li.pure-menu-item
             a.pure-menu-link(href="/report") All Task Report
+    ul.pure-menu-list(style="float:right;pointer-events:none;")
+        li.pure-menu-item
+            a.pure-menu-link(href="javascript:void(0)") #{new Date().toDateString().substring(4)}
         //- li.pure-menu-item.pure-menu-has-children.pure-menu-allow-hover
         //-     a.pure-menu-link(href="javascript:void(0);") Report
         //-     ul.pure-menu-children

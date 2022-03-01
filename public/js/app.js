@@ -30,8 +30,11 @@
 
         // Form Events
         const form = document.querySelector("#entry-form");
+        const allowPasteIDs = ['currenttask', 'comments'];
         form.addEventListener('paste', (e) => {
-            e.preventDefault();
+            if (allowPasteIDs.indexOf((e.target.id || '').toLowerCase()) == -1) {
+                e.preventDefault();
+            }
         });
         form.addEventListener('keypress', (e) => {
             const target = e.target;
